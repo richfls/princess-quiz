@@ -1,0 +1,149 @@
+<html>
+    <h1>What Disney Princess Are You?</h1>
+    
+    <script> //here's the javascript!****************************************************************************
+        
+        //set up final image
+        var pic = document.createElement("img");
+        
+        //set up local variables
+        var snow = 0;
+        var cinder = 0;
+        var jasmine = 0;
+        var kylo = 0;
+        
+        
+        //////////////////////////////////////////////////////////////////////////////////
+        function calculate(){
+            
+            //question 1////////////////////////////////////////////////////////////////
+            var q1 = document.getElementById("color");
+         
+            if(q1.options[q1.selectedIndex].text.localeCompare("Red")==0){
+                snow++;
+            }
+            else if(q1.options[q1.selectedIndex].text.localeCompare("Blue")==0){
+                cinder++;
+            }
+            else if(q1.options[q1.selectedIndex].text.localeCompare("Green")==0){
+                jasmine++;
+            }
+            else if(q1.options[q1.selectedIndex].text.localeCompare("Black")==0){
+                kylo++;
+            }
+            
+            //question 2///////////////////////////////////////////////////////////////////
+            var q2 = document.getElementById("animal");
+         
+            if(q2.options[q2.selectedIndex].text.localeCompare("Bird")==0){
+                snow++;
+            }
+            else if(q2.options[q2.selectedIndex].text.localeCompare("Mouse")==0){
+                cinder++;
+            }
+            else if(q2.options[q2.selectedIndex].text.localeCompare("Fish")==0){
+                jasmine++;
+            }
+            else if(q2.options[q2.selectedIndex].text.localeCompare("Porg")==0){
+                kylo++;
+            }
+            
+	    //question 3///////////////////////////////////////////////////////////////////
+            var q3 = document.getElementById("food");
+         
+            if(q3.options[q3.selectedIndex].text.localeCompare("Chicken")==0){
+                snow++;
+            }
+            else if(q3.options[q3.selectedIndex].text.localeCompare("Fish")==0){
+                cinder++;
+            }
+            else if(q3.options[q3.selectedIndex].text.localeCompare("Pizza")==0){
+                jasmine++;
+            }
+            else if(q3.options[q3.selectedIndex].text.localeCompare("Steak")==0){
+                kylo++;
+            }
+            
+	    //question 4///////////////////////////////////////////////////////////////////
+            var q4 = document.getElementById("music-genre");
+         
+            if(q4.options[q4.selectedIndex].text.localeCompare("Pop")==0){
+                snow++;
+            }
+            else if(q4.options[q4.selectedIndex].text.localeCompare("Rock")==0){
+                cinder++;
+            }
+            else if(q4.options[q4.selectedIndex].text.localeCompare("Rap")==0){
+                jasmine++;
+            }
+            else if(q4.options[q4.selectedIndex].text.localeCompare("Hip-Hop")==0){
+                kylo++;
+            }
+
+            
+            //final calculation/////////////////////////////////////////////////////////////
+            if(snow > cinder && snow > jasmine && snow > kylo){
+                document.getElementById("answer").innerHTML = 'You are Snow White!';
+                pic.setAttribute("src", "snow.jpg");
+            }
+            else if(cinder > snow && cinder >jasmine && cinder > kylo){
+                document.getElementById("answer").innerHTML = 'You are Cinderella!';
+                pic.setAttribute("src", "cinder.jpg");
+            }
+            //two more else-ifs go here :)
+            else
+                document.getElementById("answer").innerHTML = 'You have a tie.';
+                
+            
+            //draw the picture
+            document.body.appendChild(pic);
+            
+        }//end function calculate/////////////////////////////////////////////////////////////
+        
+        //end of javascript, back to HTML**********************************************************************************
+    </script>
+    
+    
+    <!this creates a drop-down menu selection>
+    <form>
+        <select id = "color">
+            <option>Red</option>
+            <option>Blue</option>
+            <option> Green</option>
+            <option>Black</option>    
+        </select>
+    </form>
+    
+    <form>
+        <select id = "animal">
+            <option>Bird</option>
+            <option>Mouse</option>
+            <option> Fish</option>
+            <option>Porg</option>    
+        </select>
+    </form>
+
+    <form>
+        <select id = "food">
+            <option>Chicken</option>
+            <option>Fish</option>
+            <option>Pizza</option>
+            <option>Steak</option>    
+        </select>
+    </form>
+
+    <form>
+        <select id = "music-genre">
+            <option>Pop</option>
+            <option>Rock</option>
+            <option>Rap</option>
+            <option>Hip-Hop</option>    
+        </select>
+    </form>
+    
+    <!draw the button>
+    <input type="button" onclick="calculate()" value="Calculate Princess!">
+    
+    <!tell them what princess they are>
+    <p id="answer"></p>
+</html>
